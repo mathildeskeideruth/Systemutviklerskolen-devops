@@ -11,9 +11,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -28,9 +26,10 @@ jobs:
       working-directory: systemutviklerskolen-todo-app-backend/
     - name: Test
       run: dotnet test --no-build --verbosity normal
+      working-directory: systemutviklerskolen-todo-app-backend/
     - name: Use node
       uses: actions/setup-node@v1
-      with: 
+      with:
         node-version: 14.x
     - name: NPM install
       run: npm install
